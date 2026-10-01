@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sadar Clock — What Matters Now</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient-glow"></div>
+  
+  <main class="container">
+    <header class="header">
+      <div class="tagline">SADAR CLOCK // AWARENESS INTERFACE</div>
+      <div class="status-indicator">
+        <span class="pulse-dot"></span>
+        <span id="cycle-label">Deep Work</span>
+      </div>
+    </header>
+
+    <section class="clock-section">
+      <div class="clock-frame">
+        <svg class="clock-dial" viewBox="0 0 400 400" id="clock-svg">
+          <!-- Outer Track -->
+          <circle cx="200" cy="200" r="180" class="dial-bg" />
+          
+          <!-- Fitrah 6-Cycle Sectors -->
+          <g id="cycle-arcs"></g>
+          
+          <!-- Hour markers -->
+          <g id="dial-markers"></g>
+          
+          <!-- Hands -->
+          <line x1="200" y1="200" x2="200" y2="105" id="hour-hand" class="hand hour-hand" />
+          <line x1="200" y1="200" x2="200" y2="60" id="minute-hand" class="hand minute-hand" />
+          <line x1="200" y1="200" x2="200" y2="45" id="second-hand" class="hand second-hand" />
+          
+          <!-- Center Cap -->
+          <circle cx="200" cy="200" r="6" class="center-cap" />
+          <circle cx="200" cy="200" r="2.5" class="center-dot" />
+        </svg>
+
+        <div class="clock-center-info">
+          <div class="digital-time" id="digital-clock">00:00</div>
+          <div class="hijri-solar-date" id="date-label">Memuat tanggal...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Vertical Question -->
+    <section class="intention-card">
+      <div class="vertical-compass">
+        <span class="compass-label">ORIENTATION</span>
+        <p class="compass-axiom">"Stay vertical. Give each moment what it deserves."</p>
+      </div>
+
+      <div class="focus-input-wrap">
+        <label for="current-focus" class="focus-label">WHAT MATTERS NOW?</label>
+        <div class="input-row">
+          <input type="text" id="current-focus" placeholder="Tuliskan 1 fokus esensial saat ini..." autocomplete="off" />
+          <button id="save-focus-btn" aria-label="Simpan Fokus">✓</button>
+        </div>
+      </div>
+      <div class="focus-display" id="focus-display" style="display: none;">
+        <span class="focus-badge">AKTIF</span>
+        <span class="focus-text" id="focus-text"></span>
+        <button id="clear-focus" title="Selesai / Ganti">✕</button>
+      </div>
+    </section>
+
+    <!-- 6 Fitrah Cycles -->
+    <section class="cycles-grid">
+      <div class="cycle-pill active" data-cycle="deep_work">
+        <div class="pill-dot"></div>
+        <div class="pill-meta">
+          <span class="pill-title">Deep Work</span>
+          <span class="pill-desc">The ONE Thing</span>
+        </div>
+      </div>
+      <div class="cycle-pill" data-cycle="intentional_rest">
+        <div class="pill-dot"></div>
+        <div class="pill-meta">
+          <span class="pill-title">Intentional Rest</span>
+          <span class="pill-desc">Embrace silence</span>
+        </div>
+      </div>
+      <div class="cycle-pill" data-cycle="active_rest">
+        <div class="pill-dot"></div>
+        <div class="pill-meta">
+          <span class="pill-title">Active Rest</span>
+          <span class="pill-desc">Tubuh, nafas, gerak</span>
+        </div>
+      </div>
+      <div class="cycle-pill" data-cycle="satisfying_reward">
+        <div class="pill-dot"></div>
+        <div class="pill-meta">
+          <span class="pill-title">Satisfying Reward</span>
+          <span class="pill-desc">Tanpa rasa bersalah</span>
+        </div>
+      </div>
+      <div class="cycle-pill" data-cycle="wind_down">
+        <div class="pill-dot"></div>
+        <div class="pill-meta">
+          <span class="pill-title">Wind Down</span>
+          <span class="pill-desc">Refleksi & hening</span>
+        </div>
+      </div>
+      <div class="cycle-pill" data-cycle="sleep">
+        <div class="pill-dot"></div>
+        <div class="pill-meta">
+          <span class="pill-title">Sleep</span>
+          <span class="pill-desc">Reset siklus 90m</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Breathing / Stillness Companion -->
+    <footer class="bottom-bar">
+      <div class="stillness-box">
+        <div class="breathe-circle" id="breathe-orb"></div>
+        <span id="breathe-guide">Tarik nafas... (Sadar hadir di sini)</span>
+      </div>
+      <div class="vera-signature">Built by Vera for Fahim</div>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
